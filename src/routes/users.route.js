@@ -19,7 +19,8 @@ router.delete('/users/:id', (req,res) =>{
 })
 
 router.put('/users/:id', (req,res) =>{
-    res.send('obteniendo usuarios')
+    const {id} = req.params
+    res.send('actualizando usuarios'+ id)
 })
 
 export default router
