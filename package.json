@@ -2,8 +2,12 @@
   "name": "serveratalaya",
   "version": "1.0.0",
   "main": "index.js",
+"type":"module",
+
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/index"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +15,8 @@
   "description": "",
   "dependencies": {
     "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "morgan": "^1.10.1",
     "pg": "^8.18.0"
   },
   "devDependencies": {
