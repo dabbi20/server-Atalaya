@@ -1,16 +1,31 @@
-import pkg from "pg";
-import { DB_NAME, DB_PORT, DB_HOST, DB_USER, DB_PASSWORD } from "./config.js";
+import pg from "pg";
+import {
+  DB_HOST,
+  DB_NAME,
+  DB_PASSWORD,
+  DB_PORT,
+  DB_USER,
+  DATABASE_URL,
+} from "./config.js";
 
-const { Pool } = pkg;
+export const pool = new pg.Pool(
+  DATABASE_URL
+    ? {
+        connectionString: DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
+      }
+    : {
+        user: DB_USER,
+        host: DB_HOST,
+        password: DB_PASSWORD,
+        database: DB_NAME,
+        port: Number(DB_PORT),
+      }
+);
 
-export const pool = new Pool({
-  user: DB_USER,
-  host: DB_HOST,
-  password: DB_PASSWORD,
-  database: DB_NAME,
-  port: DB_PORT,
-});
+// Verificación de conexión
+pool
+  .query("SELECT NOW()")
+  .then((r) => console.log("✅ DB Connected:", r.rows[0]))
+  .catch((err) => console.error("❌ DB Connection Error:", err));
 
-pool.query("SELECT NOW()")
-  .then((res) => console.log("DB OK:", res.rows[0]))
-  .catch((err) => console.error("DB ERROR:", err.message));

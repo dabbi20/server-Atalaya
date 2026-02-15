@@ -1,11 +1,12 @@
 {
   "name": "serveratalaya",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch src/index"
+    "dev": "node --watch src/index.js",
+     "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
