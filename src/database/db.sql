@@ -1,12 +1,11 @@
-CREATE TABLE Clientes (
-clienteID BIGSERIAL PRIMARY KEY,
-nombre VARCHAR(40) NOT NULL,
-email VARCHAR(200) NOT NULL,
-cell VARCHAR(15) NOT NULL,
-servicio VARCHAR(80)NOT NULL,
-plazo VARCHAR(30)NOT NULL,
-mensaje TEXT NOT NULL,
-contacted BOOLEAN NOT NULL DEFAULT false,
-created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-
+INSERT INTO clientes(nombre, email, cell, servicio, plazo, mensaje)
+VALUES(
+'david manuel carrasco',
+'david.carrasco@cun.edu.co',
+'3134458234',
+'diseño web',
+'10 dias',
+'hola mundo somos amigos?'
 );
+
+SELECT * FROM Clientes ORDER BY clienteid ASC;
