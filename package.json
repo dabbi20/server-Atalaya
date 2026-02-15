@@ -2,9 +2,7 @@
   "name": "serveratalaya",
   "version": "1.0.0",
   "main": "index.js",
-"type":"module",
-
-  
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch src/index"
@@ -14,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
     "morgan": "^1.10.1",
